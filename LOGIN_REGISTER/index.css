@@ -4,7 +4,7 @@
     overflow: hidden; 
 }
 body{
-    background: url(/nav_sidebar/banner4.png) no-repeat center/cover;
+    background: url(banner4.png) no-repeat center/cover;
     backdrop-filter: blur(16px);
 }
 nav{
