@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style p.css') }}"> -->
+    <link rel="stylesheet" type="text/css" href="login.css">
+
+    <title>Login</title>
+</head>
+<body>
+    <section class="login-container">
+         <header>
+        <b><u>Member login </u></b>
+      </header>
+       <form action="{{ url_for('login') }}" method="POST" class="login-form">
+        <div class="input-group">
+            <i class="fas fa-envelope"></i>
+            <label for="username">Username:</label>
+
+        <input type="text" name="username" id="username" required><br><br>
+       </div>
+       <div class="input-group">
+        <i class="fas fa-lock"></i>
+        <label for="password">Password:</label>
+
+        <input type="password" name="password" id="password"  required><br>
+        </div>
+        <div class="select-box">
+            <label for="role">Select Role:</label>
+        <select id="role" name="role" required>
+            <option value="student">Student</option>
+            <option value="teacher">Teacher</option>
+        </select><br><br>
+    
+        
+        <button  class="login-button" type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="{{ url_for('register') }}">Register here</a></p>
+</section>
+</body>
+</html>

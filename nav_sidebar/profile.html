@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Details</title>
+    <!-- Font Awesome for Pencil Icon -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'roboto',sans-serif;
+            padding: 0;
+            color: #333;
+            background-color: #f4f4f4;
+            margin: 0;
+            line-height: 1.6px;
+        }
+        h1,h2,h3 {
+            font-family: 'montserrat',sans-serif;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        p { 
+            margin-bottom: 20px;
+        }
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 8px;
+        }
+
+        /* Beach Color Header Section for Profile Picture */
+        .profile-header-section {
+            width: 100%;
+           background-image: url(bg20.jpg);
+           background-size: cover;
+           background-position: center;
+           background-repeat: no-repeat;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 8px 8px 0 0;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            margin: 0;
+        }
+
+        .profile-picture-container {
+           position: relative;
+            width: 110px; /* Larger profile picture */
+            height: 110px; /* Larger profile picture */
+            border-radius: 50%;
+            margin-left: 20px;
+            padding: 10px;
+            background-color: #ddd;
+            background-image: url('profile-picture-placeholder.jpg'); /* Replace with actual image URL */
+            background-size: cover;
+            background-position: center;
+            border: 4px solid #fff;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+
+        .profile-picture-container:hover .edit-icon {
+            opacity: 1;
+        }
+
+        .edit-icon {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            font-size: 20px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            padding: 6px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        /* Profile Details Section */
+        .profile-header {
+            font-size: 28px;
+             color:whitesmoke;
+            font-weight: bold;
+            margin-top: 10px;
+            text-align: right;
+        }
+/* Navbar Styles */
+.navbar {
+    width: 25%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 6px;
+    border-radius: 8px 8px 0 0;
+}
+
+.navbar-item {
+    flex: 1; /* Each item takes equal space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    margin: 0 10px;
+}
+
+.navbar-link {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+/* Separate Background Colors */
+.navbar-item.home {
+    background-color: #808080; /* Yellow for Home */
+    flex: 1;
+    padding: 12px;
+    border-radius: 10%;
+}
+
+.navbar-item.logout{
+    background-color: #404040; /* Green for Logout */
+    flex: 1;
+    padding: 12px;
+    border-radius: 10%;
+}
+
+/* Hover Effect */
+.navbar-link:hover {
+    background-color: #f9e2b3; /* Light beach color on hover */
+    border-radius: 6px;
+}
+
+
+        .details {
+            width: 100%;
+            margin-top: 15px;
+            font-size: 14px; /* Smaller text size for details */
+            background-color: #e4f0fa; /* Mixture of beach color and light background */
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .details label {
+            display: block;
+            margin-bottom: 15px;
+            font-weight: bold;
+           font-size: 20px;
+        }
+
+        .details input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f0f8ff;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .details input::placeholder {
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* Format input fields like "Name: __________" */
+        .details .input-field {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            position: relative;
+        }
+        .details  .input-field::after {
+            content: "";
+            position: absolute;
+            left: 30%;
+            height: 100%;
+            width: 2px;
+            background-color: black;
+            transform: translate(-50%);
+        }
+        .details .input-field label {
+            width: 30%;
+            text-align: center;
+            size: 20px;
+            border-radius: 1px solid;
+            padding-right: 10px;
+        }
+
+        .details .input-field input {
+            width: 65%;
+            padding-left: 10px;
+        }
+    
+/* Modal Styles */
+/* Edit Modal Background */
+.edit-modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent dark background */
+    z-index: 1000; /* To make sure the modal appears on top */
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.5s ease-out; /* Smooth fade-in animation */
+}
+
+/* Edit Modal Content Box */
+.edit-modal-content {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    width: 60%;
+    max-width: 500px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: scale(0.9); /* Start with a smaller scale */
+    animation: scaleUp 0.5s forwards; /* Animation to scale up the modal */
+}
+
+/* Modal Inputs */
+.edit-modal input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+/* Modal Close Button */
+.close-btn {
+    background-color: #f44336;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.close-btn:hover {
+    background-color: #d32f2f;
+}
+
+/* Animation to fade in the modal */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Animation for modal scale effect */
+@keyframes scaleUp {
+    from {
+        transform: scale(0.9);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+/* Styling for the modal when opened */
+.modal-open {
+    display: flex;
+}
+.modal {
+    background-color: aquamarine;
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.4); /* Black with opacity */
+    overflow: auto; /* Enable scroll if needed */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 8px;
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.save-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.save-btn:hover {
+    background-color: #45a049;
+}
+
+       
+        /* Edit Button */
+        .edit-btn {
+            display: block;
+            width: 50%;
+            text-align: center;
+            font-size: 16px;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #000;
+            border: 1px solid #ddd;
+            padding: 12px;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+        }
+
+        .edit-btn:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Profile Header with Beach Color Background -->
+        <div class="profile-header-section">
+            <div class="profile-picture-container">
+                <input type="file" id="profile-picture" style="display: none;" onchange="previewProfilePicture(event)">
+                <i class="fas fa-pencil-alt edit-icon" onclick="document.getElementById('profile-picture').click();"></i>
+            </div>
+            <div class="profile-header"><u><h1>Profile Details </h1></u></div>
+            <!-- Navbar Section -->
+<nav class="navbar">
+    <div class="navbar-item home">
+    <a href="zahik4.html" class="navbar-link">Home</a>
+    </div>
+    <div class="navbar-item logout">
+    <a href="#logout" class="navbar-link">Logout</a>
+    </div>
+</nav>
+
+
+        </div>
+
+        <!-- Profile Details Form -->
+        <div class="details">
+            <div class="input-field">
+                <label for="name">Name:</label>
+                
+                <input type="text" id="name" placeholder="Enter your name" readonly>
+            </div>
+
+            <div class="input-field">
+                <label for="mobile">Mobile No:</label>
+                
+                <input type="text" id="mobile" placeholder="Enter your mobile number"readonly>
+            </div>
+
+            <div class="input-field">
+                <label for="email">Email:</label>
+                
+                <input type="email" id="email" placeholder="Enter your email"readonly>
+            </div>
+
+            <div class="input-field">
+                <label for="city">Role : </label>
+                <input type="text" id="city" placeholder="Enter your city"readonly>
+            </div>
+
+            <div class="input-field">
+                <label for="language">Date of birth(DOB):</label>
+                <input type="text" id="DOB" placeholder="Enter your language(s)"readonly>
+            </div>
+
+            <div class="input-field">
+                <label for="hobbies">Gender:</label>
+                <input type="text" id="Gender" placeholder="Enter your hobbies"readonly>
+            </div>
+
+            <div class="input-field">
+                <label for="semester">Semester:</label>
+                <input type="text" id="semester" placeholder="Enter your semester"readonly>
+            </div>
+        </div>
+
+    
+<!-- Edit Profile Button (This triggers the modal) -->
+<a href="#" class="edit-btn" onclick="openEditModal()">Edit Profile</a>
+
+<!-- Modal for Editing Profile -->
+<div id="editModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeEditModal()">&times;</span>
+        <h2>Edit Profile</h2>
+        <form id="editProfileForm">
+            <div class="input-field">
+                <label for="editName">Name:</label>
+                <input type="text" id="editName" placeholder="Enter your name">
+            </div>
+            <div class="input-field">
+                <label for="editMobile">Mobile No:</label>
+                <input type="text" id="editMobile" placeholder="Enter your mobile number">
+            </div>
+            <div class="input-field">
+                <label for="editEmail">Email:</label>
+                <input type="email" id="editEmail" placeholder="Enter your email">
+            </div>
+            <div class="input-field">
+                <label for="editCity">City:</label>
+                <input type="text" id="editCity" placeholder="Enter your city">
+            </div>
+            <div class="input-field">
+                <label for="editDOB">Date of Birth:</label>
+                <input type="text" id="editDOB" placeholder="Enter your DOB">
+            </div>
+            <div class="input-field">
+                <label for="editGender">Gender:</label>
+                <input type="text" id="editGender" placeholder="Enter your gender">
+            </div>
+            <div class="input-field">
+                <label for="editSemester">Semester:</label>
+                <input type="text" id="editSemester" placeholder="Enter your semester">
+            </div>
+            <button type="button" class="save-btn" onclick="saveProfileDetails()">Save</button>
+        </form>
+    </div>
+</div>
+
+    </div>
+    <script>
+   // Preview and save profile picture to localStorage
+function previewProfilePicture(event) {
+    const container = document.querySelector('.profile-picture-container');
+    const file = event.target.files[0];
+
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            const imageUrl = e.target.result;
+            // Set the profile picture in the container
+            container.style.backgroundImage = `url(${imageUrl})`;
+
+            // Save the image URL to localStorage to persist it
+            localStorage.setItem('profilePicture', imageUrl);
+        }
+        reader.readAsDataURL(file);  // Convert the file to a base64 image
+    }
+}
+
+// Load the profile picture from localStorage when the page loads
+function loadProfilePicture() {
+    const savedImage = localStorage.getItem('profilePicture');
+    const container = document.querySelector('.profile-picture-container');
+
+    if (savedImage) {
+        // If an image URL is saved in localStorage, set it as the profile picture
+        container.style.backgroundImage = `url(${savedImage})`;
+    }
+}
+
+// Load the profile picture and other profile details when the page loads
+window.onload = function() {
+    loadProfilePicture(); // Ensure the profile picture is loaded on page refresh
+    loadProfileDetails();  // Load other profile details (e.g., name, email)
+}
+
+// Function to open the edit modal (for profile details)
+function openEditModal() {
+    const modal = document.getElementById('editModal');
+    modal.style.display = 'block';  // Show the modal
+    // Populate modal fields with existing data (if available)
+    document.getElementById('editName').value = document.getElementById('name').value;
+    document.getElementById('editMobile').value = document.getElementById('mobile').value;
+    document.getElementById('editEmail').value = document.getElementById('email').value;
+    document.getElementById('editCity').value = document.getElementById('city').value;
+    document.getElementById('editDOB').value = document.getElementById('DOB').value;
+    document.getElementById('editGender').value = document.getElementById('Gender').value;
+    document.getElementById('editSemester').value = document.getElementById('semester').value;
+}
+
+// Function to close the edit modal
+function closeEditModal() {
+    const modal = document.getElementById('editModal');
+    modal.style.display = 'none';  // Hide the modal
+}
+
+// Save the edited profile details and close the modal
+function saveProfileDetails() {
+    const name = document.getElementById('editName').value;
+    const mobile = document.getElementById('editMobile').value;
+    const email = document.getElementById('editEmail').value;
+    const city = document.getElementById('editCity').value;
+    const dob = document.getElementById('editDOB').value;
+    const gender = document.getElementById('editGender').value;
+    const semester = document.getElementById('editSemester').value;
+
+    // Save the profile data to localStorage to persist it
+    localStorage.setItem('name', name);
+    localStorage.setItem('mobile', mobile);
+    localStorage.setItem('email', email);
+    localStorage.setItem('city', city);
+    localStorage.setItem('dob', dob);
+    localStorage.setItem('gender', gender);
+    localStorage.setItem('semester', semester);
+
+    // Close the modal after saving
+    closeEditModal();
+
+    // Optionally, update the profile details on the page (without refresh)
+    document.getElementById('name').value = name;
+    document.getElementById('mobile').value = mobile;
+    document.getElementById('email').value = email;
+    document.getElementById('city').value = city;
+    document.getElementById('DOB').value = dob;
+    document.getElementById('Gender').value = gender;
+    document.getElementById('semester').value = semester;
+}
+
+// Load profile details (name, mobile, etc.) from localStorage on page load
+function loadProfileDetails() {
+    const name = localStorage.getItem('name');
+    const mobile = localStorage.getItem('mobile');
+    const email = localStorage.getItem('email');
+    const city = localStorage.getItem('city');
+    const dob = localStorage.getItem('dob');
+    const gender = localStorage.getItem('gender');
+    const semester = localStorage.getItem('semester');
+
+    if (name) document.getElementById('name').value = name;
+    if (mobile) document.getElementById('mobile').value = mobile;
+    if (email) document.getElementById('email').value = email;
+    if (city) document.getElementById('city').value = city;
+    if (dob) document.getElementById('DOB').value = dob;
+    if (gender) document.getElementById('Gender').value = gender;
+    if (semester) document.getElementById('semester').value = semester;
+}
+
+// Event listener to handle profile picture upload
+document.getElementById('profilePicInput').addEventListener('change', previewProfilePicture);
+
+                      
+
+    
+    
+</script>
+
+
+ 
+</body>
+</html>
