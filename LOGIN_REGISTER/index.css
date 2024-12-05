@@ -20,6 +20,7 @@ nav{
     height: 4.5rem;
 }
 .logo img{
+    background: #fff;
     width: 150px;
     margin-top: 5px;
 }

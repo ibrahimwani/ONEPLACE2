@@ -1,0 +1,56 @@
+.profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .profile-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  }
+  /* Profile Picture in the Profile Section */
+  .profile-section img {
+    width: 100px; /* Reduced size */
+    height: 100px; /* Maintain a square aspect ratio */
+    border-radius: 50%;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+  }
+  
+  /* Profile Picture in Navigation Bar */
+  nav .user-info img {
+    width: 40px; /* Reduced size */
+    height: 40px; /* Maintain a square aspect ratio */
+    border-radius: 50%;
+    margin-right: 25px;
+    cursor: pointer;
+  }
+  
+  body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+  }
+  
+  .sidebar.dark-mode {
+    background-color: #1e1e1e;
+  }
+  
+  .main-content.dark-mode {
+    background-color: #252525;
+  }
+  
+  nav.dark-mode {
+    border-color: #333;
+  }
+  

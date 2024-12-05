@@ -80,9 +80,10 @@ function showContent(contentId) {
   document.getElementById(contentId + "-content").style.display = "block";
 
   if(contentId=="courses"){
-    mainContent.style.border="none";
+    mainContent.style.cssText = "border: none; padding: 15px; padding-top: 0px";
   }else{
-    mainContent.style.border="solid"
+    mainContent.style.cssText= "border: solid; padding: 30px;";
+
   }
   const sidebarItems = document.querySelectorAll(".sidebar-item");
   sidebarItems.forEach((item) => item.classList.remove("active"));
