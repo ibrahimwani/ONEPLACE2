@@ -1,26 +1,35 @@
 *{
     margin: 0;
     padding: 0;   
-    overflow: hidden; 
+    box-sizing: border-box;
+    height: fit-content;
+   
+    
 }
 body{
+    font-family: "Poppins", Arial, sans-serif;
     background: url(banner4.png) no-repeat center/cover;
-    backdrop-filter: blur(16px);
+    backdrop-filter: blur(50px);
+   
+    
 }
 nav{
-    backdrop-filter: blur(50px);
-    border-radius: 24px; 
-    z-index: 5;
-    position: sticky;
-    top: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 12px 12px 24px;
-    height: 4.5rem;
+     backdrop-filter: blur(50px);
+  background: transparent;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 12px 12px 12px;
+  /* height: rem; */
+  width: 100%;
+  /* background-color: #e0e0e0; */
+  padding-top: 20px;
+  padding-bottom: 30px;
+  border-bottom: 2px solid floralwhite;
 }
 .logo img{
-    background: #fff;
+    /* background: #fff; */
     width: 150px;
     margin-top: 5px;
 }
@@ -52,7 +61,7 @@ nav{
 } */
 .text-box{
     width: 90%;
-    color: #fff;
+    padding-top: 180px;
     position: absolute;
     top: 40%;
     left: 50%;
@@ -60,8 +69,9 @@ nav{
     text-align: center;
 }
 .text-box h1{
-    color: #5f34df;
-    font-size: 55px;
+    color:cadetblue;
+    font-size: 75px;
+    font-weight: 800;
 }
 .text-box p{
     color: #fff;
@@ -116,13 +126,15 @@ nav .bi{
 
 
 .cta{
+    
     display: flex;
     justify-content: center;
     align-items: center;
 }
-/* .cta iframe{ */
-    /* border-radius: 50%;
-}
+ .cta iframe {
+    height: 300px;
+     border-radius: 30%;
+} 
 
 .footer{
     color: #fff;
