@@ -9,6 +9,17 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
     />
     <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/brands.min.css"
+      integrity="sha512-7rXIvd/xj1FnI2zKQjjXzDFxC4twqBByp8yxOgEQJs4C/aNzNyoQsOO7VxH0RgYNhbAYLJLwzqslaP50KTTHIQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
@@ -19,7 +30,7 @@
       type="text/css"
       href="{{ url_for('static', filename='css/style.css') }}?v=2"
     /> -->
-    <link rel="stylesheet"  type="text/css" href="homepage.css">
+    <link rel="stylesheet" type="text/css" href="homepage.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -29,46 +40,35 @@
   </head>
   <body>
     <nav>
-      <a class="logo" >
+      <a class="logo">
         <!-- <img
           src="{{ url_for('static', filename='images/logogradientyello.png')}}?v=2"
           alt="logo"
         />OnePlace
       </a> -->
-       <img
-          src="/ONEPLACE2/nav_sidebar/onplacewhite.png"
-          alt="logo"
-        />
-      </a> 
-
-      <div class="userAuth">
-        <!-- <form
+        <img src="/ONEPLACE2/nav_sidebar/onplacewhite.png" alt="logo" />
+      </a>
+      <div class="outer_log_sig">
+        <div class="userAuth">
+          <!-- <form
           action="{{ url_for('login') }}"
           method="get"
           style="display: inline"
         > -->
-        <form
-          action="login.html"
-          method="get"
-          style="display: inline"
-        >
-          <button class="logIn" type="submit">LogIn</button>
-        </form>
-        <!-- <form
+          <form action="/ONEPLACE2/LOGIN_REGISTER/login.html" method="get">
+            <button class="logIn" type="submit">LogIn</button>
+          </form>
+          <!-- <form
           action="{{ url_for('register') }}"
           method="get"
           style="display: inline"
         > -->
-        <form
-          action="register.html"
-          method="get"
-          style="display: inline"
-        >
-          <button class="signUp" type="submit">SignUp</button>
-        </form>
+          <form action="register.html" method="get">
+            <button class="signUp" type="submit">SignUp</button>
+          </form>
+        </div>
       </div>
     </nav>
-  
 
     <section class="header">
       <div class="text-box">
@@ -95,8 +95,85 @@
       ></iframe>
     </section>
 
-    <section class="footer">
-      <h4>About Us</h4>
+    <section>
+      <footer>
+        <div class="footer_content">
+          <!-- Column 1: Quick Links -->
+          <div class="Quick_Links">
+            <h3>Quick Links</h3>
+            <ul>
+              <li>
+                <a href="/home">Home</a>
+              </li>
+              <li>
+                <a href="/about">About Us</a>
+              </li>
+              <li>
+                <a href="/upload">Upload Notes</a>
+              </li>
+              <li>
+                <a href="/privacy-policy">Privacy Policy</a>
+              </li>
+              <li>
+                <a href="/terms">Terms of Service</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Column 2: Contact Information -->
+          <div class="footer_Contact_Information">
+            <h3>Contact Us</h3>
+            <p>
+              <i class="fa-regular fa-envelope footer-item_icons"></i>
+              <a href="mailto:Syedzakariya1323@gmail.com">
+                Syedzakariya1323@gmail.com
+              </a>
+            </p>
+            <p>Follow us:</p>
+            <a href="https://facebook.com" target="_blank">
+              <i class="fa-brands fa-facebook footer-item_icons"></i>
+            </a>
+            <a href="https://x.com" target="_blank">
+              <i class="fa-brands fa-twitter footer-item_icons"></i>
+            </a>
+            <a href="https://linkedin.com" target="_blank">
+              <i class="fa-brands fa-linkedin footer-item_icons"></i>
+            </a>
+            <a href="https://www.instagram.com/ibrahimwani4035" target="_blank">
+              <i class="fa-brands fa-instagram footer-item_icons"></i>
+            </a>
+            <a href="https://github.com/ibrahimwani/ONEPLACE2" target="_blank">
+              <i class="fa-brands fa-github footer-item_icons"></i>
+            </a>
+          </div>
+
+          <!-- Column 3: Newsletter -->
+          <div class="footer_Newsletter">
+            <h3>Newsletter</h3>
+            <form action="/newsletter" method="POST">
+              <label for="email"> Subscribe to updates: </label>
+              <input
+                type="email"
+                id="email"
+                S
+                name="email"
+                placeholder="Your email"
+                required
+              />
+              <button type="submit">Subscribe</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="footer_Bottom_Bar">
+          <span>&copy;</span>
+          <img src="/ONEPLACE2/nav_sidebar/onplacewhite.png" alt="logo" />
+          OnePlace. All Rights Reserved.
+        </div>
+      </footer>
+
+      <!-- <h4>About Us</h4>
       <i class="bi bi-c-circle">1996</i>
       <div class="icons">
         <a
@@ -118,7 +195,7 @@
       </div>
       <p id="creator">
         Made with <i class="bi bi-heart-fill text-danger"></i> by Team OnePlace
-      </p>
+      </p> -->
     </section>
   </body>
 </html>
