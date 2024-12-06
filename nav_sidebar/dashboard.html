@@ -34,9 +34,9 @@
       <ul>
         <li id="home" class="sidebar-item active"><i class="fa-solid fa-house sidebarIcon"></i>Home</li>
         <li id="courses" class="sidebar-item"><i class="fa-solid fa-graduation-cap sidebarIcon"></i>Courses</li>
-        <!-- <li id="grades" class="sidebar-item">Semester</li> -->
         <li id="archive" class="sidebar-item"><i class="fa-solid fa-box-archive sidebarIcon"></i>Archive</li>
         <li id="institute" class="sidebar-item"><i class="fa-solid fa-building sidebarIcon"></i>Institute</li>
+        <li id="profile" class="sidebar-item"><i class="fa-solid fa-user sidebarIcon"></i>Profile</li>
         <li id="settings" class="sidebar-item"><i class="fa-solid fa-gear sidebarIcon"></i>Settings</li>
         <li id="logout" class="sidebar-item"><i class="fa-solid fa-right-from-bracket sidebarIcon"></i>Logout</li>
       </ul>
@@ -104,46 +104,6 @@
         </div>
       </div>
 
-      <div id="grades-content" style="display: none" class="grades-content">
-        <div id="instituteContainer">
-          <div class="institute-box">
-            <div class="institute-dropdown">
-              <select id="firstInstituteDropdown">
-                <option value="" disabled selected>Select Institute</option>
-                <option value="KGP">KGP</option>
-                <option value="Aakash">Aakash</option>
-                <option value="FIITJEE">FIITJEE</option>
-              </select>
-              <button class="card_btn" id="selectInstituteBtn">Select</button>
-            </div>
-          </div>
-          <!-- Modal -->
-          <div id="modal" class="modal">
-            <div class="modal-header">Select Institute</div>
-            <select id="dropdown1">
-              <option value="" disabled selected>Semester</option>
-              <option value="I">I</option>
-              <option value="II">II</option>
-              <option value="III">III</option>
-              <option value="IV">IV</option>
-              <option value="V">V</option>
-              <option value="VI">VI</option>
-            </select>
-            <select id="dropdown2">
-              <option value="" disabled selected>Branch</option>
-              <option value="CSE">CSE</option>
-              <option value="IT">IT</option>
-              <option value="CE">CE</option>
-              <option value="ME">ME</option>
-              <option value="EE">EE</option>
-            </select>
-            <button class="card_btn" id="launchBtn">Launch</button>
-          </div>
-          <!-- Overlay -->
-          <div id="overlay" class="overlay"></div>
-        </div>
-      </div>
-
       <div id="archive-content" style="display: none" class="archive-content">
         <h2>Archive</h2>
         <p>Archived items go here.</p>
@@ -166,6 +126,11 @@
         <p>
           World-class technical education and training in engineering fields.
         </p>
+      </div>
+
+      <div id="profile-content" style="display: none">
+        <h2>Your Profile</h2>
+        <p>Profile options go here.</p>
       </div>
 
       <div id="settings-content" style="display: none">
