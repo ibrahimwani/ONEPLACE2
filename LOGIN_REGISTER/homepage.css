@@ -9,34 +9,22 @@ body {
   background: url(banner4.png) no-repeat center/cover;
   backdrop-filter: blur(50px);
 }
-nav {
-  backdrop-filter: blur(50px);
+nav{
+    backdrop-filter: blur(50px);
   background: transparent;
   position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 12px 12px 12px;
-  /* height: rem; */
+  padding: 20px 12px 12px 20px;
   width: 100%;
   /* background-color: #e0e0e0; */
-  padding-top: 20px;
-  padding-bottom: 30px;
   border-bottom: 2px solid floralwhite;
 }
-.outer_log_sig {
-    border:2px solid white;
-    padding: 15px;
-    border-radius: 24px;;
-}
-.logo img {
-  /* background: #fff; */
-  width: 150px;
-  margin-top: 5px;
-  cursor: pointer;
-}
-.userAuth form {
-    display: inline;
+.logo img{
+    /* background: #fff; */
+    width: 150px;
+    margin-top: 5px;
 }
 .userAuth button {
   border: 1px solid white;
