@@ -18,14 +18,14 @@ function addChapters(){
   dashboardCards.style.display="none";
   coursesContent.innerHTML=
           `<div class="dashboard-cards">
-          <div class="cardChapters" id="card1">
+          <div class="cardChapters" id="chap1">
             <h3>Chapter 1</h3>
             <div class="chapterIcons">
               <i class="fa-solid fa-file-pdf"></i>
               <i class="fa-solid fa-image"></i>
               <i class="fa-solid fa-link"></i>
             </div>
-          </div>
+          </div> 
           <div class="cardChapters">
             <h3>Chapter 2</h3>
             <div class="chapterIcons">
@@ -67,9 +67,27 @@ function addChapters(){
             </div>
           </div>
           </div>`;
+
+          selectedChapter=document.getElementById("chap1");
+selectedChapter.addEventListener("click",showtoggle)
+function showtoggle(){
+        coursesContent.insertAdjacentHTML('afterbegin', `
+      <div class="chapterSelection">
+          <select class="chapterSelectonButton">
+            <option value="option1">Chapter 1</option>
+            <option value="option2">Chapter 2</option>
+            <option value="option3">Chapter 3</option>
+          </select>
+          <div class="chapterIcons">
+            <i class="fa-solid fa-file-pdf"></i>
+            <i class="fa-solid fa-image"></i>
+            <i class="fa-solid fa-link"></i>
+          </div>
+      </div>
+        `);
 }
 
-
+}
 document.querySelector(".profile-img").addEventListener("click", goToProfileAndToggleDropdown);
 document.getElementById("selectInstituteBtn").addEventListener("click", selectInstitute);
 document.getElementById("launchBtn").addEventListener("click", launch);
