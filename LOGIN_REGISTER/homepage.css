@@ -14,24 +14,21 @@ body{
     
 }
 nav{
-     backdrop-filter: blur(50px);
+    backdrop-filter: blur(50px);
   background: transparent;
   position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 12px 12px 12px;
-  /* height: rem; */
+  padding: 20px 12px 12px 20px;
   width: 100%;
   /* background-color: #e0e0e0; */
-  padding-top: 20px;
-  padding-bottom: 30px;
   border-bottom: 2px solid floralwhite;
 }
 .logo img{
     /* background: #fff; */
-    width: 150px;
-    margin-top: 5px;
+    width: 200px;
+    /* margin-top: 5px; */
 }
 .userAuth button{
     border: 1px solid white;
